@@ -45,6 +45,32 @@ On every subsequent launch you will need to enter that password to unlock the ap
 
 ---
 
+## 🖥️ Building as a Windows .exe
+
+To create a standalone .exe that you can double-click to run:
+
+1. Make sure you have all dependencies installed:
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. Run the build script:
+   ```
+   build.bat
+   ```
+
+3. After it finishes, your .exe will be in the `dist/` folder:
+   ```
+   dist/R6 Account Manager.exe
+   ```
+
+4. Double-click the .exe to launch the app — no Python required!
+
+> **Note:** The app saves `accounts.dat` and `salt.bin` in whichever folder you run the .exe from.  
+> Always launch the .exe from the same folder so your saved data is found correctly.
+
+---
+
 ## ⚠️ Important security note
 
 The master password is **never stored anywhere**.  
