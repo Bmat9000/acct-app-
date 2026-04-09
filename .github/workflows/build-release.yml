@@ -1,0 +1,48 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build .exe with PyInstaller
+        run: pyinstaller --onefile --windowed --name "R6 Account Manager" main.py
+
+      - name: Create GitHub Release and upload .exe
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/R6 Account Manager.exe
+          name: R6 Account Manager ${{ github.ref_name }}
+          body: |
+            ## R6 Account Manager ${{ github.ref_name }}
+
+            ### Download
+            Click the `.exe` file below to download and run the app on Windows.
+            No Python installation required!
+
+            ### First Time Setup
+            1. Download `R6 Account Manager.exe`
+            2. Place it in its own folder (e.g. `C:\R6 Account Manager\`)
+            3. Double-click to launch
+            4. Create your master password on first launch
+            5. Your data will be saved in the same folder as the .exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

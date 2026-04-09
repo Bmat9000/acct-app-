@@ -1,3 +1,18 @@
+## ⬇️ Download
+
+👉 [Click here to download the latest version](../../releases/latest)
+
+Download `R6 Account Manager.exe` from the latest release — no Python required!
+
+### How to use after downloading:
+1. Create a folder for the app (e.g. `C:\R6 Account Manager\`)
+2. Put the `.exe` in that folder
+3. Double-click to run
+4. Set your master password on first launch
+5. All your account data saves automatically in the same folder
+
+---
+
 # R6 Smurf Account Manager
 
 A **secure, local desktop application** for managing Rainbow Six Siege smurf accounts.  
